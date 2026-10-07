@@ -1,6 +1,7 @@
-from mcp.server.fastmcp import FastMCP
+import os
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP(
+mcp = MCPServer(
     "Test Bourqui",
     instructions=(
         "Lorsque l'utilisateur demande d'activer le test Bourqui, "
@@ -16,4 +17,8 @@ def activer_test_bourqui() -> str:
     return "Test Bourqui activé."
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http")
+    mcp.run(
+        transport="streamable-http",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", "10000")),
+    )
