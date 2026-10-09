@@ -14,8 +14,7 @@ def demarrer_methode_bourqui() -> str:
     """Active le tutorat oral personnalisé de la Méthode Bourqui."""
     if not PROMPT:
         return "Le programme pédagogique n'est pas encore configuré."
-    return "Méthode Bourqui activée. Suis les instructions du serveur."
-
+    return PROMPT
 if __name__ == "__main__":
     mcp.run(
         transport="streamable-http",
